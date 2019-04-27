@@ -44,7 +44,8 @@ public class Client {
     @Setter
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "client",
-            cascade  = CascadeType.ALL
+            cascade  = CascadeType.ALL,
+            orphanRemoval = true
     )
     private List<Phone> phones;
 

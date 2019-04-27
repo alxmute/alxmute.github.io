@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "cities")
@@ -30,11 +31,11 @@ public class City {
 
     @Getter
     @Setter
-    @OneToOne(mappedBy = "departureCity", cascade = CascadeType.ALL)
-    private Flight flight1;
+    @OneToMany(mappedBy = "departureCity", cascade = CascadeType.ALL)
+    private List<Flight> flight1;
 
     @Getter
     @Setter
-    @OneToOne(mappedBy = "arrivalCity", cascade = CascadeType.ALL)
-    private Flight flight2;
+    @OneToMany(mappedBy = "arrivalCity", cascade = CascadeType.ALL)
+    private List<Flight> flight2;
 }

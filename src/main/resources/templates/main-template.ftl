@@ -21,7 +21,7 @@
             <a class="item" href="../clients/list">
                 Clients
             </a>
-            <a class="item">
+            <a class="item" href="../flights/search">
                 Flights
             </a>
             <div class="right menu">
