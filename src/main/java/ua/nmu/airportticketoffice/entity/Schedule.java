@@ -7,6 +7,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.sql.Time;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
@@ -43,7 +45,7 @@ public class Schedule {
     @Getter
     @Setter
     @Column(name = "time")
-    private LocalTime time;
+    private Time time;
 
     @Getter
     @Setter

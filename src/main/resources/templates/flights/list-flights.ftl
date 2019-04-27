@@ -81,7 +81,7 @@
             <#else>
             <tr>
                 <td>
-                    No result
+                    No results
                 </td>
             </tr>
         </#list>

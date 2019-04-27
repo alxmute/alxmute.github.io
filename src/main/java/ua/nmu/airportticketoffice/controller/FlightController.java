@@ -42,8 +42,11 @@ public class FlightController {
 
         System.out.println(schedules);
 
+//        for (Schedule schedule : schedules){
+//            System.out.println(schedule.getDepartureDate() + " " + schedule.getTime().getHour() + " hours " + schedule.getTime().getMinute() + " minutes");
+//        }
         for (Schedule schedule : schedules){
-            System.out.println(schedule.getDepartureDate() + " " + schedule.getTime().getHour() + " hours " + schedule.getTime().getMinute() + " minutes");
+            System.out.println(schedule.getDepartureDate() + " " + schedule.getTime().getHours() + " hours " + schedule.getTime().getMinutes() + " minutes");
         }
 
         return "/flights/list-flights";

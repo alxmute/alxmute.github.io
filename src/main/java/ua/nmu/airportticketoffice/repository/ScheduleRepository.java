@@ -11,10 +11,11 @@ import java.util.List;
 public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
     @Query(
             value = "SELECT * FROM schedule s " +
-                    "JOIN flights f on s.flight_id = f.id " +
-                    "join cities c1 on f.departure_city_id = c1.id " +
-                    "join cities c2 on f.arrival_city_id = c2.id " +
-                    "where f.departure_city_id = ?1 and f.arrival_city_id = ?2 and s.departure_date like ?3%",
-            nativeQuery = true)
+                    "JOIN flights f ON s.flight_id = f.id " +
+                    "JOIN cities c1 ON f.departure_city_id = c1.id " +
+                    "JOIN cities c2 ON f.arrival_city_id = c2.id " +
+                    "WHERE f.departure_city_id = ?1 AND f.arrival_city_id = ?2 AND s.departure_date LIKE ?3%",
+            nativeQuery = true
+    )
     List<Schedule> findAllByDepartureCityAndArrivalCityAndTimeLike(int departureCityId, int arrivalCityId, Date date);
 }
