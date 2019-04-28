@@ -10,6 +10,7 @@
         <th>Departure date and time</th>
         <th>Flight time</th>
         <th>Price</th>
+        <th>Action</th>
     </tr>
     </thead>
 
@@ -24,6 +25,7 @@
             <#assign x = schedule.time.minute>
             <td>${schedule.time.hour}h <#if x != 0>${x}m</#if></td>
             <td>${schedule.price} UAH</td>
+            <td><a href="../../tickets/issuance?id=${schedule.id}" class="ui small primary button">Issue a ticket</a></td>
         </tr>
     <#else>
         <tr>

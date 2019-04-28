@@ -7,8 +7,6 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.sql.Time;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
@@ -51,4 +49,9 @@ public class Schedule {
     @Setter
     @Column(name = "price", precision = 10, scale = 2)
     private BigDecimal price;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "schedule", orphanRemoval = true, cascade = CascadeType.ALL)
+    private List<Ticket> tickets;
 }

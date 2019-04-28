@@ -16,7 +16,7 @@
     <header class="ui menu">
         <div class="ui container">
             <div class="item">
-                <img class="ui small middle aligned image" src="/images/logo.png">
+                <img class="ui small middle aligned image" src="/images/nmuLogo.jpg">
             </div>
             <a class="item" href="../clients/list">
                 Clients
