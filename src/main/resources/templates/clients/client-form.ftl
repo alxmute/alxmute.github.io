@@ -1,6 +1,6 @@
-<#include "../main-template.ftl">
+<#include "../parts/main-template.ftl">
 <#import "/spring.ftl" as spring />
-<@main "Client's info"/>
+<@main "Add client"/>
 <#macro content>
     <h1>${action} client</h1>
 
@@ -63,7 +63,7 @@
                             </#list>
                         <#else>
                             <div class="field">
-                                <input type="tel" name="phone" placeholder="Phone number"
+                                <input type="tel" name="phone" placeholder="Phone number" class="phone"
                                        autocomplete="off">
                             </div>
                         </#if>
@@ -99,7 +99,7 @@
                         <label>Birth Date</label>
                         <div class="ui calendar">
                             <@spring.formInput
-                            "passportData.birthdate" "placeholder='Birth Place' autocomplete='off'" "text"/>
+                            "passportData.birthdate" "placeholder='Birth Date' autocomplete='off'" "text"/>
                         </div>
                     </div>
                     <div class="field">

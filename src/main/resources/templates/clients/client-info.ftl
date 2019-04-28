@@ -1,4 +1,4 @@
-<#include "../main-template.ftl">
+<#include "../parts/main-template.ftl">
 <@main "Client's info"/>
 <#macro content>
     <h1>Client's info</h1>

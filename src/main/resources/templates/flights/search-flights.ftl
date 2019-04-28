@@ -1,7 +1,11 @@
-<#include "../main-template.ftl">
-<@main "List of clients"/>
+<#include "../parts/main-template.ftl">
+<#include '../parts/schedules-table.ftl'>
+
+<@main "Search flights"/>
 <#macro content>
     <h1>Search flights</h1>
+
+    <p><a href="../../flights/schedule">Full schedule of all flights</a></p>
 
     <form class="ui form flight-form" action="../flights/list">
         <div class="fields">
@@ -54,38 +58,7 @@
 
 
     <#if schedules??>
-
-        <table class="ui very padded celled striped table">
-        <thead>
-        <tr class="ui inverted table">
-            <th>Flight ID</th>
-            <th>From</th>
-            <th>To</th>
-            <th>Departure date and time</th>
-            <th>Flight time</th>
-            <th>Price</th>
-        </tr>
-        </thead>
-
-        <tbody>
-
-        <#list schedules as schedule>
-            <tr>
-                <td>${schedule.id}</td>
-                <td>${schedule.flight.departureCity.name}</td>
-                <td>${schedule.flight.arrivalCity.name}</td>
-                <td>${schedule.departureDate}</td>
-                <td>${schedule.time}</td>
-                <td>${schedule.price}</td>
-            </tr>
-            <#else>
-            <tr>
-                <td>
-                    No results
-                </td>
-            </tr>
-        </#list>
+        <@tableFlights schedules/>
     </#if>
-
 
 </#macro>

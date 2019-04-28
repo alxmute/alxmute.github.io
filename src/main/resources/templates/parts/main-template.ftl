@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
         <script src="http://code.jquery.com/jquery-3.4.0.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.js" defer></script>
-        <script src="/scripts/scripts.js" defer></script>
+        <script src="/scripts/script.js" defer></script>
 
     </head>
     <header class="ui menu">

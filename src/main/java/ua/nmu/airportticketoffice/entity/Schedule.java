@@ -45,7 +45,7 @@ public class Schedule {
     @Getter
     @Setter
     @Column(name = "time")
-    private Time time;
+    private LocalTime time;
 
     @Getter
     @Setter

@@ -148,23 +148,35 @@ $('.client-form')
     })
 ;
 
+let i = 0;
 let div = document.querySelector(".phones-list");
 document.querySelector(".add-button").onclick = function () {
     div.insertAdjacentHTML(
         'beforeend',
-        '<div class="ui icon input field">\n' +
-        '    <input type="tel" name="phone" placeholder="Phone number" class="phone" autocomplete="off">\n' +
-        '<i class="delete link icon"></i>' +
+        '<div class="ui icon input field" id="phone-input-field' + i + '">\n' +
+        '    <input type="tel" name="phone" placeholder="Phone number" class="phone" autocomplete="off" data-value="' + i + '">\n' +
+        '<i class="delete link icon delete-button" data-value="' + i + '"></i>' +
         '</div>'
     );
-};
+    i++;
 
+    let deleteButtons = document.querySelectorAll(".delete-button");
+    for (let i = 0; i < deleteButtons.length; i++) {
+        deleteButtons[i].onclick = function () {
+            let toDelete = this.getAttribute("data-value");
+            document.querySelector("#phone-input-field" + toDelete).remove();
+        }
+    }
+};
 
 document.querySelector(".client-form").onsubmit = function () {
     let phones = document.querySelectorAll(".phone");
     for (let i = 0; i < phones.length; i++) {
         if (phones[i].value === "") {
-            phones[i].remove();
+            let v = phones[i].getAttribute("data-value");
+            document.querySelector("#phone-input-field" + v).remove();
         }
     }
 };
+
+

@@ -36,20 +36,12 @@ public class FlightController {
 
         model.addAttribute("cities", cities);
 
-        //2019-06-15
-        List<Schedule> schedules = scheduleRepository.findAllByDepartureCityAndArrivalCityAndTimeLike(from, to, Date.valueOf(date));
-        model.addAttribute("schedules", schedules);
-
-        System.out.println(schedules);
-
-//        for (Schedule schedule : schedules){
-//            System.out.println(schedule.getDepartureDate() + " " + schedule.getTime().getHour() + " hours " + schedule.getTime().getMinute() + " minutes");
-//        }
-        for (Schedule schedule : schedules){
-            System.out.println(schedule.getDepartureDate() + " " + schedule.getTime().getHours() + " hours " + schedule.getTime().getMinutes() + " minutes");
+        if (from != null && to != null && date != null){
+            List<Schedule> schedules = scheduleRepository.findAllByDepartureCityAndArrivalCityAndTimeLike(from, to, Date.valueOf(date));
+            model.addAttribute("schedules", schedules);
         }
 
-        return "/flights/list-flights";
+        return "/flights/search-flights";
     }
 
 
@@ -59,7 +51,16 @@ public class FlightController {
 
         model.addAttribute("cities", cities);
 
-        return "/flights/list-flights";
+        return "/flights/search-flights";
+    }
+
+    @GetMapping("/schedule")
+    public String fullSchedule(Model model) {
+        List<Schedule> schedules = scheduleRepository.findAll();
+
+        model.addAttribute("schedules", schedules);
+
+        return "/flights/schedule";
     }
 
 }
