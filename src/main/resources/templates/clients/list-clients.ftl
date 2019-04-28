@@ -33,7 +33,7 @@
                 </a>
                 <a href="../clients/delete?id=${client.id}"
                    class="ui floated small red labeled icon button"
-                   onclick="if (!(confirm('Are you sure you want to delete this employee?'))) return false">
+                   onclick="if (!(confirm('Are you sure you want to delete this client?'))) return false">
                     <i class="trash icon"></i>
                     Delete
                 </a>

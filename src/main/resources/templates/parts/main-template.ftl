@@ -24,6 +24,9 @@
             <a class="item" href="../flights/search">
                 Flights
             </a>
+            <a class="item" href="../tickets/list">
+                Tickets
+            </a>
             <div class="right menu">
                 <a class="item">Sign Out</a>
             </div>

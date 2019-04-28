@@ -49,6 +49,15 @@ public class Client {
     )
     private List<Phone> phones;
 
+    @Getter
+    @Setter
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "client",
+            cascade  = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Ticket> tickets;
+
     public void addPhone(Phone phone) {
         if (phones == null) {
             phones = new ArrayList<>();

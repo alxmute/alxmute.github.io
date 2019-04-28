@@ -3,7 +3,6 @@ package ua.nmu.airportticketoffice.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,7 +10,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tickets")
 @NoArgsConstructor
-@ToString(of = {"id", "name"})
 public class Ticket {
 
     @Id
@@ -28,13 +26,13 @@ public class Ticket {
 
     @Getter
     @Setter
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "client_id")
     private Client client;
 
     @Getter
     @Setter
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     @JoinColumn(name = "seat_id")
     private Seat seat;
 

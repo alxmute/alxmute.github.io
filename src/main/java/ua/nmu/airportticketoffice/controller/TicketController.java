@@ -38,7 +38,7 @@ public class TicketController {
     private TicketRepository ticketRepository;
 
     @GetMapping("/issuance")
-    public String ticketIssuance(
+    public String issueTicket(
             Model model,
             @RequestParam Integer id
     ) {
@@ -62,7 +62,7 @@ public class TicketController {
     }
 
     @GetMapping("/save")
-    public String save(
+    public String saveTicket(
             @RequestParam int scheduleId,
             @RequestParam int clientId,
             @RequestParam int seatId
@@ -80,75 +80,46 @@ public class TicketController {
 
         ticketRepository.save(ticket);
 
-        return "redirect:/flights/schedule";
+        return "redirect:/tickets/list";
     }
 
-//    @GetMapping("/add")
-//    public String showFormForAdd(Model model) {
-//        PassportData passportData = new PassportData();
-//
-//        model.addAttribute("passportData", passportData);
-//        model.addAttribute("action", "Add");
-//
-//        return "/clients/client-form";
-//    }
-//
-//    @GetMapping("/edit")
-//    public String showFormForEdit(@RequestParam int id, Model model) {
-//        Client client = clientRepository.findById(id).get();
-//
-//        model.addAttribute("passportData", client.getPassportData());
-//        model.addAttribute("action", "Update");
-//
-//        return "/clients/client-form";
-//    }
-//
-//    @GetMapping("/save")
-//    public String saveClient(
-//            @ModelAttribute("passportData") PassportData passportData,
-//            @RequestParam(name = "clientId", required = false) Integer clientId,
-//            @RequestParam String lastName,
-//            @RequestParam String firstName,
-//            @RequestParam String patronymic,
-//            @RequestParam(name = "phone") String[] phones,
-//            @RequestParam(name = "phoneId", required = false) Integer[] ids
-//    ) {
-//        passportData = passportDataRepository.save(passportData);
-//        Client client = new Client();
-//        if (clientId != null) {
-//            client.setId(clientId);
-//        }
-//        client.setLastName(lastName);
-//        client.setFirstName(firstName);
-//        client.setPatronymic(patronymic);
-//        client.setPassportData(passportData);
-//
-//        List<Phone> clientPhones = new ArrayList<>(phones.length);
-//
-//        for (int i = 0; i < phones.length; i++) {
-//            Phone phone = new Phone();
-//            if (ids != null && i < ids.length) {
-//                phone.setId(ids[i]);
-//            } else {
-//                phone.setId(0);
-//            }
-//            phone.setPhone(phones[i]);
-//            phone.setClient(client);
-//            clientPhones.add(phone);
-//        }
-//        client.setPhones(clientPhones);
-//
-//        clientRepository.save(client);
-//
-//        return "redirect:/clients/list";
-//    }
-//
-//    @GetMapping("/delete")
-//    public String deleteEmployee(@RequestParam int id) {
-//
-//        clientRepository.deleteById(id);
-//
-//        return "redirect:/clients/list";
-//    }
+    @GetMapping("/list")
+    public String listTickets(Model model) {
 
+        List<Ticket> tickets = ticketRepository.findAllByOrderBySaleDateDesc();
+
+        model.addAttribute("tickets", tickets);
+
+        return "/tickets/list-tickets";
+    }
+
+    @GetMapping("/clients-tickets")
+    public String clientsTicketsList(Model model, @RequestParam int id) {
+
+        Client client = clientRepository.findById(id).get();
+
+        List<Ticket> tickets = client.getTickets();
+
+        model.addAttribute("tickets", tickets);
+
+        return "/tickets/list-tickets";
+    }
+
+    @GetMapping("/info")
+    public String ticketInfo(@RequestParam int id, Model model) {
+
+        Ticket ticket = ticketRepository.findById(id).get();
+
+        model.addAttribute("ticket", ticket);
+
+        return "/tickets/ticket-info";
+    }
+
+    @GetMapping("/delete")
+    public String deleteTicket(@RequestParam int id) {
+
+        ticketRepository.deleteById(id);
+
+        return "redirect:/tickets/list";
+    }
 }

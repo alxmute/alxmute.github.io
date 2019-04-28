@@ -44,6 +44,10 @@
                 </#list>
             </td>
         </tr>
+        <tr>
+            <td><strong>Tickets:</strong></td>
+            <td><a href="../../tickets/clients-tickets?id=${client.id}">View</a></td>
+        </tr>
     </table>
 
     <a href="../../clients/edit?id=${client.id}"

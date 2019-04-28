@@ -178,5 +178,3 @@ document.querySelector(".client-form").onsubmit = function () {
         }
     }
 };
-
-
