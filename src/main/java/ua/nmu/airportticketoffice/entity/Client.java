@@ -53,8 +53,7 @@ public class Client {
     @Setter
     @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "client",
-            cascade  = CascadeType.ALL,
-            orphanRemoval = true
+            cascade  = CascadeType.ALL
     )
     private List<Ticket> tickets;
 
