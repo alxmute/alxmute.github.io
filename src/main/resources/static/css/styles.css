@@ -1,3 +1,11 @@
+body > .login-form-grid {
+    height: 100%;
+}
+
+.login-form-grid > .column {
+    max-width: 500px;
+}
+
 .add-button:hover {
     cursor: pointer;
     text-decoration: underline;

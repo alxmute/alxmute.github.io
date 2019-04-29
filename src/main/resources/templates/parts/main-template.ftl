@@ -1,3 +1,4 @@
+<#include "../parts/security.ftl">
 <#macro main title>
     <!DOCTYPE html>
     <html lang="en">
@@ -6,7 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>${title}</title>
 
-        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.css">
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
         <script src="http://code.jquery.com/jquery-3.4.0.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.js" defer></script>
@@ -27,8 +29,16 @@
             <a class="item" href="../tickets/list">
                 Tickets
             </a>
+            <#if isAdmin>
+                <a class="item" href="../users/list">
+                    Users
+                </a>
+            </#if>
             <div class="right menu">
-                <a class="item">Sign Out</a>
+                <form action="/logout" method="post" class="item">
+                    <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                    <button type="submit" class="ui button">Sign Out</button>
+                </form>
             </div>
         </div>
     </header>
@@ -37,6 +47,8 @@
     <div class="ui container">
         <@content/>
     </div>
+
+
     </body>
     </html>
 </#macro>

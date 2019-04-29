@@ -7,19 +7,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ua.nmu.airportticketoffice.entity.*;
-import ua.nmu.airportticketoffice.repository.AirpalneRepository;
+import ua.nmu.airportticketoffice.entity.Client;
+import ua.nmu.airportticketoffice.entity.PassportData;
+import ua.nmu.airportticketoffice.entity.Phone;
 import ua.nmu.airportticketoffice.repository.ClientRepository;
 import ua.nmu.airportticketoffice.repository.PassportDataRepository;
-import ua.nmu.airportticketoffice.repository.SeatRepository;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Controller
-@RequestMapping("/clients")
+@RequestMapping({"/clients", "/"})
+
 public class ClientController {
 
     @Autowired
@@ -27,6 +26,11 @@ public class ClientController {
 
     @Autowired
     private PassportDataRepository passportDataRepository;
+
+    @RequestMapping("/")
+    public String start(Model model) {
+        return "redirect:/clients/list";
+    }
 
     @GetMapping("/list")
     public String listClients(Model model) {

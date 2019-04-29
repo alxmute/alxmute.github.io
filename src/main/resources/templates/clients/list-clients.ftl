@@ -1,4 +1,6 @@
 <#include "../parts/main-template.ftl">
+<#include "../parts/security.ftl">
+
 <@main "List of clients"/>
 <#macro content>
     <h1>List of Clients</h1>
@@ -25,18 +27,20 @@
             <td>${client.lastName}</td>
             <td>${client.firstName}</td>
             <td>${client.patronymic}</td>
-            <td class="four wide column">
+            <td class="<#if isAdmin>four<#else>two</#if> wide column">
                 <a href="../clients/client-info?id=${client.id}"
                    class="ui floated small primary labeled icon button">
                     <i class="info icon"></i>
                     Details
                 </a>
-                <a href="../clients/delete?id=${client.id}"
-                   class="ui floated small red labeled icon button"
-                   onclick="if (!(confirm('Are you sure you want to delete this client?'))) return false">
-                    <i class="trash icon"></i>
-                    Delete
-                </a>
+                <#if isAdmin>
+                    <a href="../clients/delete?id=${client.id}"
+                       class="ui floated small red labeled icon button"
+                       onclick="if (!(confirm('Are you sure you want to delete this client?'))) return false">
+                        <i class="trash icon"></i>
+                        Delete
+                    </a>
+                </#if>
             </td>
         </tr>
     </#list>
