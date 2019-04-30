@@ -1,7 +1,7 @@
 <#-- @ftlvariable name="schedule" type="ua.nmu.airportticketoffice.entity.Schedule" -->
 <#macro tableFlights schedules>
 
-    <table class="ui very padded celled striped table">
+    <table class="ui celled striped table">
     <thead>
     <tr class="ui inverted table">
         <th>Flight ID</th>
@@ -34,5 +34,4 @@
             </td>
         </tr>
     </#list>
-
 </#macro>

@@ -1,9 +1,39 @@
-body > .login-form-grid {
+body.login-body {
+    background: -moz-linear-gradient(top, #003565 50%, #E7EBF0 50%);
+    background: -webkit-linear-gradient(top, #003565 50%, #E7EBF0 50%);
+    background: linear-gradient(to bottom, #003565 50%, #E7EBF0 50%);
+}
+
+.login-form-grid {
     height: 100%;
+}
+
+.login-form-grid .ui.primary.button {
+    background-color: #035F8E;
+}
+
+.login-form-grid .ui.primary.button:hover {
+    background-color: #1678C2;
+}
+
+.login-form-grid .ui.primary.image.header .content {
+    color: #005F91 !important;
 }
 
 .login-form-grid > .column {
     max-width: 500px;
+}
+
+.blue-menu {
+    background-color: #003565 !important;
+}
+
+.transparent-button {
+    background-color: transparent !important;
+    font-weight: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: rgba(255, 255, 255, .9) !important;
 }
 
 .add-button:hover {

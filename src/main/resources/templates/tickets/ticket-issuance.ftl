@@ -4,7 +4,7 @@
 <#macro content>
     <h1>Ticket Issuance</h1>
 
-    <form class="ui form ticket-form" action="../../tickets/save">
+    <form class="ui form ticket-form" action="../../tickets/save" method="post">
         <input type="hidden" name="scheduleId" value="${schedule.id}">
         <div class="ui internally celled grid">
             <div class="row">
@@ -76,6 +76,7 @@
             </div>
         </div>
         <div class="ui divider"></div>
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <button type="submit" class="ui primary button">Apply</button>
         <div class="ui error message"></div>
     </form>

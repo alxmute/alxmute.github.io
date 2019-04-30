@@ -9,7 +9,7 @@
         Issue Ticket
     </a>
 
-    <table class="ui very padded celled striped table">
+    <table class="ui celled striped table">
     <thead>
     <tr class="ui inverted table">
         <th>Ticket ID</th>

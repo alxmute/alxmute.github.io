@@ -12,19 +12,20 @@
     <#--<script src="/scripts/script.js" defer></script>-->
 
 </head>
-<body>
+<body class="login-body">
 
 <div class="ui middle aligned center aligned grid login-form-grid">
     <div class="column">
-        <h2 class="ui primary image header">
-            <img src="/images/loginLogo.png" class="image">
-            <div class="content">
-                Log-in to your account
-            </div>
-        </h2>
+
         <form action="/login" method="post" class="ui large form">
 
             <div class="ui stacked segment">
+                <h2 class="ui primary image header">
+                    <img src="/images/loginLogo.png" class="image">
+                    <div class="content">
+                        Log-in to your account
+                    </div>
+                </h2>
                 <div class="field">
                     <div class="ui left icon input">
                         <i class="user icon"></i>
