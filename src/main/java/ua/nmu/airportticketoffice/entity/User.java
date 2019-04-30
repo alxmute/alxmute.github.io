@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class User implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
     private int id;

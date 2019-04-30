@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.nmu.airportticketoffice.entity.Client;
@@ -61,7 +62,7 @@ public class TicketController {
         return "/tickets/ticket-issuance";
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public String saveTicket(
             @RequestParam int scheduleId,
             @RequestParam int clientId,
