@@ -1,6 +1,7 @@
 package ua.nmu.airportticketoffice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,9 @@ public class UserController {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @GetMapping("/list")
     public String listTickets(Model model) {
@@ -49,13 +53,13 @@ public class UserController {
         model.addAttribute("roles", roleRepository.findAll());
         model.addAttribute("action", "Update");
 
-
         return "/users/user-form";
     }
 
     @PostMapping("/save")
     public String saveUser(@ModelAttribute("user") User user) {
 
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setActive(true);
         userRepository.save(user);
 
