@@ -42,6 +42,10 @@
             <td>${ticket.schedule.airplane.name}</td>
         </tr>
         <tr>
+            <td><strong>Seat Number:</strong></td>
+            <td>${ticket.seat.seatNumber}</td>
+        </tr>
+        <tr>
             <td><strong>Sale Date:</strong></td>
             <td>${ticket.saleDate}</td>
         </tr>

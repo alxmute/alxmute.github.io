@@ -1,5 +1,7 @@
 [#ftl]
 [#-- @implicitly included --]
+[#-- @ftlvariable name="theUser" type="ua.nmu.airportticketoffice.entity.User" --]
+[#-- @ftlvariable name="roles" type="java.util.List<ua.nmu.airportticketoffice.entity.Role>" --]
 [#-- @ftlvariable name="users" type="java.util.List<ua.nmu.airportticketoffice.entity.User>" --]
 [#-- @ftlvariable name="ticket" type="ua.nmu.airportticketoffice.entity.Ticket" --]
 [#-- @ftlvariable name="tickets" type="java.util.List<ua.nmu.airportticketoffice.entity.Ticket>" --]

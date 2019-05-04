@@ -27,7 +27,8 @@ public class Role implements GrantedAuthority {
     @Setter
     @Getter
     @ManyToMany(
-            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH}
+            cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
+            fetch = FetchType.LAZY
     )
     @JoinTable(
             name = "users_roles",

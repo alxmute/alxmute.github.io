@@ -6,6 +6,5 @@ import ua.nmu.airportticketoffice.entity.Ticket;
 import java.util.List;
 
 public interface TicketRepository extends JpaRepository<Ticket, Integer> {
-
     List<Ticket> findAllByOrderBySaleDateDesc();
 }

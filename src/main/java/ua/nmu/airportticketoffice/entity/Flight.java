@@ -28,6 +28,4 @@ public class Flight {
     @OneToOne
     @JoinColumn(name = "arrival_city_id")
     private City arrivalCity;
-
-
 }

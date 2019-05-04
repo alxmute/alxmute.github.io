@@ -1,19 +1,24 @@
 package ua.nmu.airportticketoffice.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.stereotype.Service;
-import ua.nmu.airportticketoffice.repository.UserRepository;
+import ua.nmu.airportticketoffice.entity.User;
 
-@Service
-public class UserService implements UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
+import java.util.List;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username);
-    }
+public interface UserService extends UserDetailsService {
+    User save(User user);
+
+    List<User> saveAll(List<User> users);
+
+    List<User> findAll();
+
+    List<User> findAllByOrderByNameAsc();
+
+    User findById(int id);
+
+    User findByUsername(String username);
+
+    void delete(User user);
+
+    void deleteById(Integer id);
 }

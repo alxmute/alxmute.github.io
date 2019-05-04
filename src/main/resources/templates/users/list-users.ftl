@@ -15,7 +15,6 @@
     <tr class="ui inverted table">
         <th>Username</th>
         <th>Password</th>
-        <th>Action</th>
     </tr>
     </thead>
 
@@ -24,8 +23,6 @@
     <#list users as user>
         <tr>
             <td>${user.username}</td>
-            <td>${user.password}</td>
-            <#--<td>${user.roles}</td>-->
             <td class="four wide column">
                 <a href="../users/edit?id=${user.id}"
                    class="ui floated small primary labeled icon button">

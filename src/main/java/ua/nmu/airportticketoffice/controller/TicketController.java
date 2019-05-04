@@ -11,15 +11,10 @@ import ua.nmu.airportticketoffice.entity.Client;
 import ua.nmu.airportticketoffice.entity.Schedule;
 import ua.nmu.airportticketoffice.entity.Seat;
 import ua.nmu.airportticketoffice.entity.Ticket;
-import ua.nmu.airportticketoffice.repository.ClientRepository;
-import ua.nmu.airportticketoffice.repository.ScheduleRepository;
-import ua.nmu.airportticketoffice.repository.SeatRepository;
-import ua.nmu.airportticketoffice.repository.TicketRepository;
+import ua.nmu.airportticketoffice.service.ClientService;
+import ua.nmu.airportticketoffice.service.ScheduleService;
+import ua.nmu.airportticketoffice.service.TicketService;
 
-import java.time.Clock;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 @Controller
@@ -27,16 +22,13 @@ import java.util.List;
 public class TicketController {
 
     @Autowired
-    private ClientRepository clientRepository;
+    private ClientService clientService;
 
     @Autowired
-    private SeatRepository seatRepository;
+    private ScheduleService scheduleService;
 
     @Autowired
-    private ScheduleRepository scheduleRepository;
-
-    @Autowired
-    private TicketRepository ticketRepository;
+    private TicketService ticketService;
 
     @GetMapping("/issuance")
     public String issueTicket(
@@ -44,15 +36,10 @@ public class TicketController {
             @RequestParam Integer id
     ) {
 
-        List<Client> clients = clientRepository.findAllByOrderByLastNameAsc();
-        Schedule schedule = scheduleRepository.findById(id).get();
+        List<Client> clients = clientService.findAllByOrderByLastNameAsc();
+        Schedule schedule = scheduleService.findById(id);
         List<Seat> seats = schedule.getAirplane().getSeats();
-        seats.sort(Comparator.comparing(Seat::getSeatNumber));
-
-        List<Seat> busySeats = new ArrayList<>();
-        for (Ticket t : schedule.getTickets()){
-            busySeats.add(t.getSeat());
-        }
+        List<Seat> busySeats = schedule.getAirplane().getBusySeats(schedule.getId());
 
         model.addAttribute("clients", clients);
         model.addAttribute("schedule", schedule);
@@ -68,18 +55,8 @@ public class TicketController {
             @RequestParam int clientId,
             @RequestParam int seatId
     ) {
-        Schedule schedule = scheduleRepository.findById(scheduleId).get();
-        Client client = clientRepository.findById(clientId).get();
-        Seat seat = seatRepository.findById(seatId).get();
 
-        Ticket ticket = new Ticket();
-
-        ticket.setSchedule(schedule);
-        ticket.setClient(client);
-        ticket.setSeat(seat);
-        ticket.setSaleDate(LocalDateTime.now(Clock.systemUTC()));
-
-        ticketRepository.save(ticket);
+        ticketService.save(scheduleId, clientId, seatId);
 
         return "redirect:/tickets/list";
     }
@@ -87,7 +64,7 @@ public class TicketController {
     @GetMapping("/list")
     public String listTickets(Model model) {
 
-        List<Ticket> tickets = ticketRepository.findAllByOrderBySaleDateDesc();
+        List<Ticket> tickets = ticketService.findAllByOrderBySaleDateDesc();
 
         model.addAttribute("tickets", tickets);
 
@@ -97,7 +74,7 @@ public class TicketController {
     @GetMapping("/clients-tickets")
     public String clientsTicketsList(Model model, @RequestParam int id) {
 
-        Client client = clientRepository.findById(id).get();
+        Client client = clientService.findById(id);
 
         List<Ticket> tickets = client.getTickets();
 
@@ -109,7 +86,7 @@ public class TicketController {
     @GetMapping("/info")
     public String ticketInfo(@RequestParam int id, Model model) {
 
-        Ticket ticket = ticketRepository.findById(id).get();
+        Ticket ticket = ticketService.findById(id);
 
         model.addAttribute("ticket", ticket);
 
@@ -119,7 +96,7 @@ public class TicketController {
     @GetMapping("/delete")
     public String deleteTicket(@RequestParam int id) {
 
-        ticketRepository.deleteById(id);
+        ticketService.deleteById(id);
 
         return "redirect:/tickets/list";
     }

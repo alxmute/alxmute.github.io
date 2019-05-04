@@ -9,11 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.nmu.airportticketoffice.entity.Client;
 import ua.nmu.airportticketoffice.entity.PassportData;
-import ua.nmu.airportticketoffice.entity.Phone;
-import ua.nmu.airportticketoffice.repository.ClientRepository;
-import ua.nmu.airportticketoffice.repository.PassportDataRepository;
+import ua.nmu.airportticketoffice.service.ClientService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -22,10 +19,7 @@ import java.util.List;
 public class ClientController {
 
     @Autowired
-    private ClientRepository clientRepository;
-
-    @Autowired
-    private PassportDataRepository passportDataRepository;
+    private ClientService clientService;
 
     @RequestMapping("/")
     public String start(Model model) {
@@ -34,7 +28,8 @@ public class ClientController {
 
     @GetMapping("/list")
     public String listClients(Model model) {
-        List<Client> clients = clientRepository.findAllByOrderByLastNameAsc();
+
+        List<Client> clients = clientService.findAllByOrderByLastNameAsc();
 
         model.addAttribute("clients", clients);
 
@@ -43,7 +38,8 @@ public class ClientController {
 
     @GetMapping("/client-info")
     public String clientInfo(@RequestParam int id, Model model) {
-        Client client = clientRepository.findById(id).get();
+
+        Client client = clientService.findById(id);
 
         model.addAttribute("client", client);
 
@@ -52,6 +48,7 @@ public class ClientController {
 
     @GetMapping("/add")
     public String showFormForAdd(Model model) {
+
         PassportData passportData = new PassportData();
 
         model.addAttribute("passportData", passportData);
@@ -62,7 +59,8 @@ public class ClientController {
 
     @GetMapping("/edit")
     public String showFormForEdit(@RequestParam int id, Model model) {
-        Client client = clientRepository.findById(id).get();
+
+        Client client = clientService.findById(id);
 
         model.addAttribute("passportData", client.getPassportData());
         model.addAttribute("action", "Update");
@@ -80,32 +78,8 @@ public class ClientController {
             @RequestParam(name = "phone") String[] phones,
             @RequestParam(name = "phoneId", required = false) Integer[] ids
     ) {
-        passportData = passportDataRepository.save(passportData);
-        Client client = new Client();
-        if (clientId != null) {
-            client.setId(clientId);
-        }
-        client.setLastName(lastName);
-        client.setFirstName(firstName);
-        client.setPatronymic(patronymic);
-        client.setPassportData(passportData);
 
-        List<Phone> clientPhones = new ArrayList<>(phones.length);
-
-        for (int i = 0; i < phones.length; i++) {
-            Phone phone = new Phone();
-            if (ids != null && i < ids.length) {
-                phone.setId(ids[i]);
-            } else {
-                phone.setId(0);
-            }
-            phone.setPhone(phones[i]);
-            phone.setClient(client);
-            clientPhones.add(phone);
-        }
-        client.setPhones(clientPhones);
-
-        clientRepository.save(client);
+        clientService.save(passportData, clientId, lastName, firstName, patronymic, ids, phones);
 
         return "redirect:/clients/list";
     }
@@ -113,7 +87,7 @@ public class ClientController {
     @GetMapping("/delete")
     public String deleteEmployee(@RequestParam int id) {
 
-        clientRepository.deleteById(id);
+        clientService.deleteById(id);
 
         return "redirect:/clients/list";
     }

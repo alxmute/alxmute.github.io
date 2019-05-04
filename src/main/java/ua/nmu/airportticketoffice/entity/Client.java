@@ -3,14 +3,15 @@ package ua.nmu.airportticketoffice.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "clients")
 @NoArgsConstructor
+@ToString(of = {"id", "lastName", "firstName", "patronymic"})
 public class Client {
 
     @Id
@@ -56,24 +57,4 @@ public class Client {
             cascade  = CascadeType.ALL
     )
     private List<Ticket> tickets;
-
-    public void addPhone(Phone phone) {
-        if (phones == null) {
-            phones = new ArrayList<>();
-        }
-
-        phones.add(phone);
-        phone.setClient(this);
-    }
-
-    @Override
-    public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", patronymic='" + patronymic + '\'' +
-                ", passportData=" + passportData +
-                '}';
-    }
 }

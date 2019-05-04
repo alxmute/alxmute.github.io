@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import ua.nmu.airportticketoffice.entity.City;
 import ua.nmu.airportticketoffice.entity.Schedule;
-import ua.nmu.airportticketoffice.repository.CityRepository;
-import ua.nmu.airportticketoffice.repository.ScheduleRepository;
+import ua.nmu.airportticketoffice.service.CityService;
+import ua.nmu.airportticketoffice.service.ScheduleService;
 
 import java.sql.Date;
 import java.util.List;
@@ -19,11 +19,10 @@ import java.util.List;
 public class FlightController {
 
     @Autowired
-    private ScheduleRepository scheduleRepository;
+    private ScheduleService scheduleService;
 
     @Autowired
-    private CityRepository cityRepository;
-
+    private CityService cityService;
 
     @GetMapping("/list")
     public String listFlights(
@@ -32,12 +31,14 @@ public class FlightController {
             @RequestParam Integer to,
             @RequestParam String date
     ) {
-        List<City> cities = cityRepository.findAllByOrderByNameAsc();
+
+        List<City> cities = cityService.findAllByOrderByNameAsc();
 
         model.addAttribute("cities", cities);
 
-        if (from != null && to != null && date != null){
-            List<Schedule> schedules = scheduleRepository.findAllByDepartureCityAndArrivalCityAndTimeLike(from, to, Date.valueOf(date));
+        if (from != null && to != null && date != null) {
+            List<Schedule> schedules =
+                    scheduleService.findAllByDepartureCityAndArrivalCityAndTimeLike(from, to, Date.valueOf(date));
             model.addAttribute("schedules", schedules);
         }
 
@@ -47,7 +48,8 @@ public class FlightController {
 
     @GetMapping("/search")
     public String searchFlights(Model model) {
-        List<City> cities = cityRepository.findAllByOrderByNameAsc();
+
+        List<City> cities = cityService.findAllByOrderByNameAsc();
 
         model.addAttribute("cities", cities);
 
@@ -56,7 +58,8 @@ public class FlightController {
 
     @GetMapping("/schedule")
     public String fullSchedule(Model model) {
-        List<Schedule> schedules = scheduleRepository.findAll();
+
+        List<Schedule> schedules = scheduleService.findAll();
 
         model.addAttribute("schedules", schedules);
 

@@ -3,6 +3,7 @@ package ua.nmu.airportticketoffice.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "countries")
 @NoArgsConstructor
+@ToString(of = {"id", "name"})
 public class Country {
 
     @Id
