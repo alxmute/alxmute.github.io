@@ -2,7 +2,6 @@
 <#import "/spring.ftl" as spring />
 <@main "Ticket Issuance"/>
 <#macro content>
-    <h1>Ticket Issuance</h1>
 
     <form class="ui form ticket-form" action="../../tickets/save" method="post">
         <input type="hidden" name="scheduleId" value="${schedule.id}">
@@ -80,4 +79,5 @@
         <button type="submit" class="ui primary button">Apply</button>
         <div class="ui error message"></div>
     </form>
+
 </#macro>

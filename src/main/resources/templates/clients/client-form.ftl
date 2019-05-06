@@ -2,7 +2,6 @@
 <#import "/spring.ftl" as spring />
 <@main "Add client"/>
 <#macro content>
-    <h1>${action} client</h1>
 
     <@spring.bind "passportData"/>
     <form class="ui form client-form" action="../clients/save">

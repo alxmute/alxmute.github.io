@@ -1,7 +1,6 @@
 <#include "../parts/main-template.ftl">
 <@main "Ticket's info"/>
 <#macro content>
-    <h1>Ticket's info</h1>
 
     <table class="ui very basic padded table">
         <tr>
@@ -54,4 +53,5 @@
             <td>${ticket.schedule.price}</td>
         </tr>
     </table>
+
 </#macro>

@@ -1,7 +1,6 @@
 <#include "../parts/main-template.ftl">
 <@main "Client's info"/>
 <#macro content>
-    <h1>Client's info</h1>
 
     <table class="ui very basic padded table">
         <tr>
@@ -50,28 +49,12 @@
         </tr>
     </table>
 
-    <a href="../../clients/edit?id=${client.id}"
-       class="ui floated small labeled icon button">
-        <i class="edit icon"></i>
-        Edit
-    </a>
+    <div>
+        <a href="../../clients/edit?id=${client.id}"
+           class="ui floated small labeled icon button">
+            <i class="edit icon"></i>
+            Edit
+        </a>
+    </div>
 
-<#--<table class="ui very padded definition table">-->
-<#--<tr>-->
-<#--<td>Full Name:</td>-->
-<#--<td>${client.lastName} ${client.firstName} ${client.patronymic}</td>-->
-<#--</tr>-->
-<#--<tr>-->
-<#--<td>Birth Date:</td>-->
-<#--<td>${client.passportData.birthdate}</td>-->
-<#--</tr>-->
-<#--<tr>-->
-<#--<td>Sex:</td>-->
-<#--<td>${client.passportData.sex}</td>-->
-<#--</tr>-->
-<#--<tr>-->
-<#--<td>Note:</td>-->
-<#--<td>${client.passportData.note}</td>-->
-<#--</tr>-->
-<#--</table>-->
 </#macro>

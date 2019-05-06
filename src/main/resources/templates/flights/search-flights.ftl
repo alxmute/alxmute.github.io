@@ -3,7 +3,6 @@
 
 <@main "Search flights"/>
 <#macro content>
-    <h1>Search flights</h1>
 
     <p><a href="../../flights/schedule">Full schedule of all flights</a></p>
 
@@ -55,7 +54,6 @@
             </div>
         </div>
     </form>
-
 
     <#if schedules??>
         <@tableFlights schedules/>
