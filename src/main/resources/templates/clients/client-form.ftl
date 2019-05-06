@@ -91,7 +91,7 @@
                         <label>Issue Date</label>
                         <div class="ui calendar">
                             <@spring.formInput
-                            "passportData.issueDate" "placeholder='Birth Place' autocomplete='off'" "text"/>
+                            "passportData.issueDate" "placeholder='Issue Date' autocomplete='off'" "text"/>
                         </div>
                     </div>
                     <div class="field">
@@ -116,6 +116,5 @@
             </div>
         </div>
         <button type="submit" class="ui primary button">${action}</button>
-        <div class="ui error message"></div>
     </form>
 </#macro>

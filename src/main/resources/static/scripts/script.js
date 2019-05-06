@@ -36,114 +36,17 @@ $('.client-form')
     .form({
         on: 'blur',
         fields: {
-            lastName: {
-                identifier: 'lastName',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a last name'
-                    }
-                ]
-            },
-            firstName: {
-                identifier: 'firstName',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a first name'
-                    }
-                ]
-            },
-            patronymic: {
-                identifier: 'patronymic',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a patronymic'
-                    }
-                ]
-            },
-            sex: {
-                identifier: 'sex',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please select a sex'
-                    }
-                ]
-            },
-            // phone: {
-            //     identifier: 'phone',
-            //     rules: [
-            //         {
-            //             type: 'empty',
-            //             prompt: 'Please enter at least one phone number'
-            //         }
-            //     ]
-            // },
-            series: {
-                identifier: 'series',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a passport series'
-                    }
-                ]
-            },
-            number: {
-                identifier: 'number',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a passport ID'
-                    }
-                ]
-            },
-            issuePlace: {
-                identifier: 'issuePlace',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter an issue place'
-                    }
-                ]
-            },
-            issueDate: {
-                identifier: 'issueDate',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please select an issue date'
-                    }
-                ]
-            },
-            birthdate: {
-                identifier: 'birthdate',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please select an birth date'
-                    }
-                ]
-            },
-            birthPlace: {
-                identifier: 'birthPlace',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a birth place'
-                    }
-                ]
-            },
-            registration: {
-                identifier: 'registration',
-                rules: [
-                    {
-                        type: 'empty',
-                        prompt: 'Please enter a registration information'
-                    }
-                ]
-            }
+            lastName: 'empty',
+            firstName: 'empty',
+            patronymic: 'empty',
+            sex: 'empty',
+            series: 'empty',
+            number: 'empty',
+            issuePlace: 'empty',
+            issueDate: 'empty',
+            birthdate: 'empty',
+            birthPlace: 'empty',
+            registration: 'empty',
         }
     })
 ;
