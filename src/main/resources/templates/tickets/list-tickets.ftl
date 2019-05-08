@@ -7,7 +7,7 @@
             <input type="text" placeholder="Search ticket..." class="custom-input" onkeyup="tableSearch()">
             <i class="search icon"></i>
         </div>
-        <a href="/../../flights/search" class="ui floated primary labeled icon button">
+        <a href="/../../flights/list" class="ui floated primary labeled icon button">
             <i class="shopping cart icon"></i>
             Issue Ticket
         </a>

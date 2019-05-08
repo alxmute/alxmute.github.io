@@ -3,10 +3,7 @@ package ua.nmu.airportticketoffice.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ua.nmu.airportticketoffice.entity.Client;
 import ua.nmu.airportticketoffice.entity.PassportData;
 import ua.nmu.airportticketoffice.service.ClientService;
@@ -68,7 +65,7 @@ public class ClientController {
         return "/clients/client-form";
     }
 
-    @GetMapping("/save")
+    @PostMapping("/save")
     public String saveClient(
             @ModelAttribute("passportData") PassportData passportData,
             @RequestParam(name = "clientId", required = false) Integer clientId,

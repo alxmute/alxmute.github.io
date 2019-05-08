@@ -6,7 +6,7 @@
 
     <p><a href="../../flights/schedule">Full schedule of all flights</a></p>
 
-    <form class="ui form flight-form" action="../flights/list">
+    <form class="ui form flight-form" action="../flights/list" method="post">
         <div class="fields">
             <div class="six wide field">
                 <label>From:</label>
@@ -46,6 +46,7 @@
                         </div>
                     </div>
                     <div class="three wide field">
+                        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
                         <button class="ui icon primary button" type="submit">
                             <i class="search icon"></i>
                         </button>
