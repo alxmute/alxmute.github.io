@@ -77,7 +77,6 @@
         <div class="ui divider"></div>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <button type="submit" class="ui primary button">Apply</button>
-        <div class="ui error message"></div>
     </form>
 
 </#macro>

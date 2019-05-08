@@ -4,7 +4,7 @@
 <#macro content>
 
     <@spring.bind "passportData"/>
-    <form class="ui form client-form" action="../clients/save">
+    <form class="ui form client-form" action="../clients/save" method="post">
         <div class="ui internally celled grid">
             <div class="row">
                 <div class="eight wide column">
@@ -115,6 +115,7 @@
                 </div>
             </div>
         </div>
+        <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <button type="submit" class="ui primary button">${action}</button>
     </form>
 </#macro>

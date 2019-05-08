@@ -51,6 +51,16 @@ $('.client-form')
     })
 ;
 
+$('.ticket-form')
+    .form({
+        on: 'blur',
+        fields: {
+            clientId: 'empty',
+            seatId: 'empty'
+        }
+    })
+;
+
 let i = 0;
 let div = document.querySelector(".phones-list");
 document.querySelector(".add-button").onclick = function () {

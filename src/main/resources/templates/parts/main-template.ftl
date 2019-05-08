@@ -102,7 +102,7 @@
                 </a>
             </li>
             <li class="menu-item">
-                <a href="../flights/search" class="btn">
+                <a href="../flights/list" class="btn">
                     <div class="menu-item-content">
                         <i class="plane icon"></i> Flights
                     </div>
