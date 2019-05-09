@@ -37,7 +37,7 @@ public class Client {
 
     @Getter
     @Setter
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY, orphanRemoval = true)
     @JoinColumn(name = "passport_data_id")
     private PassportData passportData;
 
@@ -57,4 +57,19 @@ public class Client {
             cascade  = CascadeType.ALL
     )
     private List<Ticket> tickets;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Client client = (Client) o;
+
+        return id == client.id;
+    }
+
+    @Override
+    public int hashCode() {
+        return id;
+    }
 }

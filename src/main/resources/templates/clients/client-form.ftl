@@ -75,12 +75,12 @@
                     <div class="field">
                         <label>Passport Series</label>
                         <@spring.formInput
-                        "passportData.series" "placeholder='Passport Series' autocomplete='off'" "text"/>
+                        "passportData.series" "placeholder='Passport Series' autocomplete='off' maxlength='2'" "text"/>
                     </div>
                     <div class="field">
                         <label>Passport ID</label>
                         <@spring.formInput
-                        "passportData.number" "placeholder='Passport ID' autocomplete='off'" "text"/>
+                        "passportData.number" "placeholder='Passport ID' autocomplete='off' maxlength='6'" "text"/>
                     </div>
                     <div class="field">
                         <label>Issue Place</label>

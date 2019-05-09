@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Login</title>
 
+    <link rel="shortcut icon" href="/images/loginLogo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
     <script src="http://code.jquery.com/jquery-3.4.0.min.js" defer></script>
