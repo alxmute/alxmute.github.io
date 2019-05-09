@@ -77,6 +77,18 @@
         <div class="ui divider"></div>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <button type="submit" class="ui primary button">Apply</button>
+
+        <#if error??>
+            <div class="ui negative message">
+                <i class="close icon"></i>
+                <div class="header">
+                    Error
+                </div>
+                <p>
+                    The client is already has a ticket for the flight.
+                </p>
+            </div>
+        </#if>
     </form>
 
 </#macro>

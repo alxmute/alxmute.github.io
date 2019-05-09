@@ -53,10 +53,15 @@ public class TicketController {
     public String saveTicket(
             @RequestParam int scheduleId,
             @RequestParam int clientId,
-            @RequestParam int seatId
+            @RequestParam int seatId,
+            Model model
     ) {
 
-        ticketService.save(scheduleId, clientId, seatId);
+        Ticket saveResult = ticketService.save(scheduleId, clientId, seatId);
+        if (saveResult == null) {
+            model.addAttribute("error", true);
+            return issueTicket(model, scheduleId);
+        }
 
         return "redirect:/tickets/list";
     }

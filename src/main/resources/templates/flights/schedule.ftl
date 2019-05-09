@@ -5,7 +5,7 @@
 
 <#macro content>
 
-    <p><a href="../../flights/list">< Back</a></p>
+    <div><a href="../../flights/list">< Back</a></div>
     <@tableFlights schedules/>
 
 </#macro>

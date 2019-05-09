@@ -30,7 +30,8 @@
                 <#list tickets as ticket>
                     <tr>
                         <td>${ticket.id}</td>
-                        <td>${ticket.schedule.flight.departureCity.name} - ${ticket.schedule.flight.arrivalCity.name}</td>
+                        <td>${ticket.schedule.flight.departureCity.name}
+                            - ${ticket.schedule.flight.arrivalCity.name}</td>
                         <td>${ticket.client.lastName} ${ticket.client.firstName} ${ticket.client.patronymic}</td>
                         <td>
                             <a href="../tickets/info?id=${ticket.id}"
@@ -38,14 +39,12 @@
                                 <i class="info icon"></i>
                                 Details
                             </a>
-                            <#if isAdmin>
-                                <a href="../tickets/delete?id=${ticket.id}"
-                                   class="button delete-button"
-                                   onclick="if (!(confirm('Are you sure you want to delete this ticket?'))) return false">
-                                    <i class="trash icon"></i>
-                                    Delete
-                                </a>
-                            </#if>
+                            <a href="../tickets/delete?id=${ticket.id}"
+                               class="button delete-button"
+                               onclick="if (!(confirm('Are you sure you want to delete this ticket?'))) return false">
+                                <i class="trash icon"></i>
+                                Delete
+                            </a>
                         </td>
                     </tr>
                 <#else >

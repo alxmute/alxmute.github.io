@@ -3,7 +3,6 @@ package ua.nmu.airportticketoffice.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Date;
@@ -11,7 +10,6 @@ import java.sql.Date;
 @Entity
 @Table(name = "passport_data")
 @NoArgsConstructor
-//@ToString(of = {"id", "client"})
 public class PassportData {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

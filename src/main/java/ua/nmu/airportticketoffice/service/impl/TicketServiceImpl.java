@@ -41,6 +41,14 @@ public class TicketServiceImpl implements TicketService {
 
         Schedule schedule = scheduleService.findById(scheduleId);
         Client client = clientService.findById(clientId);
+
+        List<Ticket> tickets = schedule.getTickets();
+        for (Ticket ticket1 : tickets) {
+            if (ticket1.getClient().equals(client)) {
+                return null;
+            }
+        }
+
         Seat seat = seatService.findById(seatId);
 
         Ticket ticket = new Ticket();
