@@ -37,13 +37,13 @@
                             <a href="../tickets/info?id=${ticket.id}"
                                class="button">
                                 <i class="info icon"></i>
-                                Details
+                                <span class="hidden">Details</span>
                             </a>
                             <a href="../tickets/delete?id=${ticket.id}"
                                class="button delete-button"
                                onclick="if (!(confirm('Are you sure you want to delete this ticket?'))) return false">
                                 <i class="trash icon"></i>
-                                Delete
+                                <span class="hidden">Delete</span>
                             </a>
                         </td>
                     </tr>

@@ -30,7 +30,7 @@
                             <a href="../../tickets/issuance?id=${schedule.id}"
                                class="button">
                                 <i class="shopping cart icon"></i>
-                                Issue a ticket
+                                <span class="hidden">Issue a ticket</span>
                             </a>
                         </td>
                     </tr>

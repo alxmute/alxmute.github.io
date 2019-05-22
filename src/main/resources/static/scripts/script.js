@@ -61,6 +61,10 @@ $('.ticket-form')
     })
 ;
 
+document.querySelector('.hamburger').onclick = function(){
+    document.querySelector('.menu').classList.add('opened');
+};
+
 let i = 0;
 let div = document.querySelector(".phones-list");
 document.querySelector(".add-button").onclick = function () {

@@ -8,7 +8,10 @@
     <link rel="shortcut icon" href="/images/loginLogo.png" type="image/png">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.css">
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
-    <script src="http://code.jquery.com/jquery-3.4.0.min.js" defer></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.js" defer></script>
     <#--<script src="/scripts/script.js" defer></script>-->
 

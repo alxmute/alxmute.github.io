@@ -38,14 +38,14 @@
                             <a href="../clients/client-info?id=${client.id}"
                                class="button">
                                 <i class="info icon"></i>
-                                Details
+                                <span class="hidden">Details</span>
                             </a>
                             <#if isAdmin>
                                 <a href="../clients/delete?id=${client.id}"
                                    class="button delete-button"
                                    onclick="if (!(confirm('Are you sure you want to delete this client?'))) return false">
                                     <i class="trash icon"></i>
-                                    Delete
+                                    <span class="hidden">Delete</span>
                                 </a>
                             </#if>
                         </td>

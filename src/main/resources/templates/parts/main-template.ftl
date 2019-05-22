@@ -10,7 +10,7 @@
         <link rel="shortcut icon" href="/images/loginLogo.png" type="image/png">
         <link rel="stylesheet" type="text/css"
               href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.css">
-        <script src="http://code.jquery.com/jquery-3.4.0.min.js" defer></script>
+        <script src="https://code.jquery.com/jquery-3.4.0.min.js" defer></script>
         <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.7.4/dist/semantic.min.js" defer></script>
         <script src="/scripts/script.js" defer></script>
         <link rel="stylesheet" type="text/css" href="/css/styles.css">
@@ -87,6 +87,9 @@
             </svg>
         </div>
         <div class="header-content">
+            <div class="hamburger">
+                <i class="hamburger icon"></i>
+            </div>
             <div class="header-text">
                 <h1>${title}</h1>
             </div>

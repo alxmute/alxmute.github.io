@@ -40,13 +40,13 @@
                             <a href="../users/edit?id=${user.id}"
                                class="button">
                                 <i class="edit icon"></i>
-                                Edit
+                                <span class="hidden">Edit</span>
                             </a>
                             <a href="../users/delete?id=${user.id}"
                                class="button delete-button"
                                onclick="if (!(confirm('Are you sure you want to delete this user?'))) return false">
                                 <i class="trash icon"></i>
-                                Delete
+                                <span class="hidden">Delete</span>
                             </a>
                         </td>
                     </tr>
