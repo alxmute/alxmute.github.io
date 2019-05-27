@@ -96,7 +96,7 @@
         </div>
     </header>
 
-    <aside class="menu">
+    <aside class="main-menu">
         <ul class="menu-list">
             <li class="menu-item">
                 <a href="../clients/list" class="btn">

@@ -62,7 +62,7 @@ $('.ticket-form')
 ;
 
 document.querySelector('.hamburger').onclick = function(){
-    document.querySelector('.menu').classList.add('opened');
+    document.querySelector('.main-menu').classList.add('opened');
 };
 
 let i = 0;
