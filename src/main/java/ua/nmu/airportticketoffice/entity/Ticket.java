@@ -21,7 +21,7 @@ public class Ticket {
     @Getter
     @Setter
     @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn(name = "shedule_id")
+    @JoinColumn(name = "schedule_id")
     private Schedule schedule;
 
     @Getter
